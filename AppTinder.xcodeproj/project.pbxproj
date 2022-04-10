@@ -14,6 +14,7 @@
 		2971AFB82800620000986860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2971AFB72800620000986860 /* Assets.xcassets */; };
 		2971AFBB2800620000986860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2971AFB92800620000986860 /* LaunchScreen.storyboard */; };
 		2971AFC32800623200986860 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AFC22800623200986860 /* UIView.swift */; };
+		2971AFC52800781B00986860 /* CombineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AFC42800781B00986860 /* CombineVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2971AFBA2800620000986860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2971AFBC2800620000986860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2971AFC22800623200986860 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		2971AFC42800781B00986860 /* CombineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		2971AFA22800620000986860 = {
 			isa = PBXGroup;
 			children = (
+				2971AFC62800781F00986860 /* Controller */,
 				2971AFAD2800620000986860 /* AppTinder */,
 				2971AFAC2800620000986860 /* Products */,
 			);
@@ -68,6 +71,14 @@
 				2971AFBC2800620000986860 /* Info.plist */,
 			);
 			path = AppTinder;
+			sourceTree = "<group>";
+		};
+		2971AFC62800781F00986860 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2971AFC42800781B00986860 /* CombineVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 				2971AFB32800620000986860 /* ViewController.swift in Sources */,
 				2971AFAF2800620000986860 /* AppDelegate.swift in Sources */,
 				2971AFB12800620000986860 /* SceneDelegate.swift in Sources */,
+				2971AFC52800781B00986860 /* CombineVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
