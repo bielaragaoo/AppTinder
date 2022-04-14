@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2931645828046951004CCC50 /* CombineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931645728046951004CCC50 /* CombineCardView.swift */; };
+		2931645B2805A174004CCC50 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931645A2805A174004CCC50 /* UILabel.swift */; };
+		2931645D2805AB9F004CCC50 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931645C2805AB9F004CCC50 /* Usuario.swift */; };
+		293164612805B053004CCC50 /* UsuarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293164602805B053004CCC50 /* UsuarioService.swift */; };
+		2939D7FA280766AF005676B7 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939D7F9280766AF005676B7 /* UIImageView.swift */; };
+		2939D7FC2807930F005676B7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2939D7FB2807930F005676B7 /* UIButton.swift */; };
 		2971AFAF2800620000986860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AFAE2800620000986860 /* AppDelegate.swift */; };
 		2971AFB12800620000986860 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AFB02800620000986860 /* SceneDelegate.swift */; };
 		2971AFB32800620000986860 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2971AFB22800620000986860 /* ViewController.swift */; };
@@ -18,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2931645728046951004CCC50 /* CombineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineCardView.swift; sourceTree = "<group>"; };
+		2931645A2805A174004CCC50 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		2931645C2805AB9F004CCC50 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		293164602805B053004CCC50 /* UsuarioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioService.swift; sourceTree = "<group>"; };
+		2939D7F9280766AF005676B7 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		2939D7FB2807930F005676B7 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		2971AFAB2800620000986860 /* AppTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2971AFAE2800620000986860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2971AFB02800620000986860 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,10 +53,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		293164562804693A004CCC50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2931645728046951004CCC50 /* CombineCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		293164592805A163004CCC50 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				2971AFC22800623200986860 /* UIView.swift */,
+				2931645A2805A174004CCC50 /* UILabel.swift */,
+				2939D7F9280766AF005676B7 /* UIImageView.swift */,
+				2939D7FB2807930F005676B7 /* UIButton.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		2931645F2805ABB5004CCC50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2931645C2805AB9F004CCC50 /* Usuario.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2971AFA22800620000986860 = {
 			isa = PBXGroup;
 			children = (
+				293164602805B053004CCC50 /* UsuarioService.swift */,
+				2931645F2805ABB5004CCC50 /* Model */,
+				293164562804693A004CCC50 /* View */,
 				2971AFC62800781F00986860 /* Controller */,
+				293164592805A163004CCC50 /* Lib */,
 				2971AFAD2800620000986860 /* AppTinder */,
 				2971AFAC2800620000986860 /* Products */,
 			);
@@ -64,7 +107,6 @@
 				2971AFAE2800620000986860 /* AppDelegate.swift */,
 				2971AFB02800620000986860 /* SceneDelegate.swift */,
 				2971AFB22800620000986860 /* ViewController.swift */,
-				2971AFC22800623200986860 /* UIView.swift */,
 				2971AFB42800620000986860 /* Main.storyboard */,
 				2971AFB72800620000986860 /* Assets.xcassets */,
 				2971AFB92800620000986860 /* LaunchScreen.storyboard */,
@@ -152,9 +194,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293164612805B053004CCC50 /* UsuarioService.swift in Sources */,
+				2931645D2805AB9F004CCC50 /* Usuario.swift in Sources */,
 				2971AFC32800623200986860 /* UIView.swift in Sources */,
 				2971AFB32800620000986860 /* ViewController.swift in Sources */,
+				2931645B2805A174004CCC50 /* UILabel.swift in Sources */,
+				2931645828046951004CCC50 /* CombineCardView.swift in Sources */,
+				2939D7FA280766AF005676B7 /* UIImageView.swift in Sources */,
 				2971AFAF2800620000986860 /* AppDelegate.swift in Sources */,
+				2939D7FC2807930F005676B7 /* UIButton.swift in Sources */,
 				2971AFB12800620000986860 /* SceneDelegate.swift in Sources */,
 				2971AFC52800781B00986860 /* CombineVC.swift in Sources */,
 			);
