@@ -7,8 +7,13 @@
 
 import UIKit
 
+enum Acao {
+    case dislike
+    case like
+    case superlike
+}
+
 class CombineVC: UIViewController {
-    
     
     var usuarios: [Usuario] = []
     var dislikeButton: UIButton = .iconFooter(named: "icone-deslike")
@@ -18,15 +23,15 @@ class CombineVC: UIViewController {
     var chatButton: UIButton = .iconMenu(named: "icone-chat")
     var logoButon: UIButton = .iconMenu(named: "icone-logo")
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = UIColor.systemGroupedBackground
+        
+        let loading = Loading(frame: view.frame)
+        view.insertSubview(loading, at: 0)
         
         
         self.adicionaHeader()
@@ -36,9 +41,19 @@ class CombineVC: UIViewController {
     }
     
     func buscaUsuarios () {
-        self.usuarios = UsuarioService.shared.buscaUsuarios()
-        self.adicionarCards()
-    
+//        self.usuarios = UsuarioService.shared.buscaUsuarios()
+//        self.adicionarCards()
+        UsuarioService.shared.buscaUsuarios{(usuarios, err) in
+        if let usuarios = usuarios {
+            DispatchQueue.main.async {
+                self.usuarios = usuarios
+                self.adicionarCards()
+            }
+            
+        }
+        }
+        
+        
     }
 }
 
@@ -58,7 +73,6 @@ extension UIApplication {
             .keyWindow
     }
 }
-
 
 extension CombineVC {
     
@@ -84,10 +98,13 @@ extension CombineVC {
         
         view.addSubview(stackView)
         stackView.preencher(top: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, padding: .init(top: 0, left: 16, bottom: 34, right: 16))
+        
+        dislikeButton.addTarget(self, action: #selector(dislikeClique), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(likeClique), for: .touchUpInside)
+        superlikeButton.addTarget(self, action: #selector(superlikeClique), for: .touchUpInside)
+        
     }
 }
-
-
 
 extension CombineVC {
     func adicionarCards () {
@@ -106,13 +123,28 @@ extension CombineVC {
         gesture.addTarget(self, action: #selector(handlerCard))
         
     card.addGestureRecognizer(gesture)
-        view.insertSubview(card, at: 0)
+        view.insertSubview(card, at: 1)
         
         }
         
     }
-}
+    func removeCard (card: UIView) {
+        card.removeFromSuperview()
+        
+    self.usuarios = self.usuarios.filter({(usuario) -> Bool in
+        return usuario.id != card.tag
+        
 
+        }
+        
+    )}
+   
+        func verificarMatch (usuario: Usuario) {
+            if usuario.match {
+                print ("WOOOOOOOw")
+            }
+    }
+}
 
 extension CombineVC {
     @objc func handlerCard (gesture: UIPanGestureRecognizer){
@@ -132,12 +164,19 @@ extension CombineVC {
                 card.dislikeImageView.alpha = rotationAngle * 4 * -1
             }
             
-            
-            
             card.transform = CGAffineTransform(rotationAngle: rotationAngle)
             
-            
             if gesture.state == .ended {
+                
+                if card.center.x > self.view.bounds.width + 50 {
+                    self.animaCard(rotationAngle: rotationAngle, acao: .like)
+                    return
+                }
+                
+                if card.center.x < -50 {
+                    self.animaCard(rotationAngle: rotationAngle, acao: .dislike)
+                    return
+                }
                 
                 UIView.animate(withDuration: 0.25){
                     card.center = self.view.center
@@ -149,6 +188,65 @@ extension CombineVC {
                 
             }
         }
+    }
+    
+    @objc func dislikeClique () {
+        self.animaCard(rotationAngle: -0.4, acao: .dislike)
+    }
+    @objc func likeClique () {
+        self.animaCard(rotationAngle: 0.4, acao: .like)
+    }
+    
+    @objc func superlikeClique () {
+        self.animaCard(rotationAngle: 0, acao: .superlike)
+    }
+    
+    func animaCard (rotationAngle: CGFloat, acao: Acao) {
+//        print (rotationAngle)
+//        print (acao)
         
+        if let usuario = self.usuarios.first {
+            for view in self.view.subviews {
+                if view.tag == usuario.id {
+                    if let card = view as? CombineCardView {
+                        let center: CGPoint
+                        var like: Bool
+                        
+                        switch acao {
+                        case .dislike:
+                            center = CGPoint(x: card.center.x - self.view.bounds.width, y: card.center.y + 50)
+                        like = false
+                        case .like:
+                            center = CGPoint(x: card.center.x + self.view.bounds.width, y: card.center.y + 50)
+                        like = true
+                        
+                        case.superlike:
+                            center = CGPoint(x: card.center.x, y: card.center.y - self.view.bounds.height)
+                        like = true
+                        }
+                            
+                            
+                        UIView.animate(withDuration: 0.4, animations: {
+                            card.center = center
+                            card.transform = CGAffineTransform(rotationAngle: rotationAngle)
+                            
+                            card.dislikeImageView.alpha = like == false ? 1 : 0
+                            card.likeImageView.alpha = like == true ? 1 : 0
+                        }) { (_) in
+                            
+                            if like {
+                                self.verificarMatch(usuario: usuario)
+                        }
+                            
+                            self.removeCard(card: card)
+                        }
+                    }
+                }
+
+            }
+
+        
+
+        }
     }
 }
