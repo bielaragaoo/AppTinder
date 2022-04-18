@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29226A4F2809B56E0065ACD6 /* MatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29226A4E2809B56E0065ACD6 /* MatchVC.swift */; };
 		292505D92808E09C00273C22 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292505D82808E09C00273C22 /* Loading.swift */; };
 		2931645828046951004CCC50 /* CombineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931645728046951004CCC50 /* CombineCardView.swift */; };
 		2931645B2805A174004CCC50 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931645A2805A174004CCC50 /* UILabel.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29226A4E2809B56E0065ACD6 /* MatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchVC.swift; sourceTree = "<group>"; };
 		292505D82808E09C00273C22 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		2931645728046951004CCC50 /* CombineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineCardView.swift; sourceTree = "<group>"; };
 		2931645A2805A174004CCC50 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				2971AFC42800781B00986860 /* CombineVC.swift */,
+				29226A4E2809B56E0065ACD6 /* MatchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				2971AFAF2800620000986860 /* AppDelegate.swift in Sources */,
 				2939D7FC2807930F005676B7 /* UIButton.swift in Sources */,
 				2971AFB12800620000986860 /* SceneDelegate.swift in Sources */,
+				29226A4F2809B56E0065ACD6 /* MatchVC.swift in Sources */,
 				292505D92808E09C00273C22 /* Loading.swift in Sources */,
 				2971AFC52800781B00986860 /* CombineVC.swift in Sources */,
 			);

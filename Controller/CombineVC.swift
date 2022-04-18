@@ -133,18 +133,24 @@ extension CombineVC {
         
     self.usuarios = self.usuarios.filter({(usuario) -> Bool in
         return usuario.id != card.tag
-        
-
+    
         }
         
     )}
    
-        func verificarMatch (usuario: Usuario) {
-            if usuario.match {
-                print ("WOOOOOOOw")
-            }
+            func verificarMatch (usuario: Usuario) {
+                if usuario.match {
+                    print ("WOOOOOOOw")
+                    
+                    let matchVC = MatchVC()
+                    matchVC.usuario = usuario 
+                    matchVC.modalPresentationStyle = .fullScreen
+                    
+                    self.present(matchVC, animated: true, completion: nil)
+                    
+                }
+        }
     }
-}
 
 extension CombineVC {
     @objc func handlerCard (gesture: UIPanGestureRecognizer){
