@@ -114,9 +114,14 @@ extension CombineVC {
         let card = CombineCardView()
             card.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 32, height: view.bounds.height * 0.7)
         
-        card.center = view.center
+            card.center = view.center
             card.usuario = usuario
             card.tag = usuario.id
+            
+            card.callback = { (data) in
+                self.visualizarDetalhe(usuario: data)
+                
+            }
         
         let gesture = UIPanGestureRecognizer()
         
@@ -150,7 +155,29 @@ extension CombineVC {
                     
                 }
         }
+    
+    func visualizarDetalhe (usuario: Usuario) {
+        let detalheVC = DetalheVC()
+//        detalheVC.view.backgroundColor = .red
+       
+        detalheVC.usuario = usuario 
+        detalheVC.modalPresentationStyle = .fullScreen
+        
+        detalheVC.callback = { (usuario,acao) in
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if acao == .dislike {
+                    self.dislikeClique()
+                } else {
+                    self.likeClique()
+                }
+            }
+            
+        }
+        
+        self.present(detalheVC, animated: true, completion: nil)
     }
+}
 
 extension CombineVC {
     @objc func handlerCard (gesture: UIPanGestureRecognizer){
